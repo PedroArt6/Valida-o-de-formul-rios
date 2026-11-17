@@ -25,7 +25,7 @@ export default function Cadastro() {
  if (!emailValido) {
  novosErros.email = "Digite um e-mail válido.";
  }
-  if (form.curso.option.value("") ){
+  if (form.curso === ""){
  novosErros.curso = "Selecione um curso";
  }
  if (form.senha.length < 6) {
@@ -71,15 +71,18 @@ return (
  {erros.email && <small id="erro-email"
 className="erro">{erros.email}</small>}
 
-<label htmlfor="curso">Selecione um curso</label>
+<label htmlFor="curso">Selecione um curso</label>
 
-<select id="curso" name="curso" value={form.curso} aria-invalid={!!erros.curso} 
-aria-describedby={erros.curso ? "erro-curso" : undefined} onChange={alterar} type="select">
-    <option value="">Selecione um curso</option>
-    <option value="informatica">Informática</option>
+<select id="curso" name="curso" value={form.curso} onChange={alterar}
+aria-invalid={!!erros.curso}
+aria-describedby={erros.curso ? "erro-curso" : undefined}>
+    <option value={''} >Selecione um curso</option>
+    <option value={"info"}>Informática</option>
     <option value="administração">Administração</option>
     <option value="mecatronica">Mecatrônica</option>
 </select>
+
+{erros.curso && <small id="erro-curso" className="erro">{erros.curso}</small>}
 
  <label htmlFor="senha">Senha</label>
 
