@@ -8,5 +8,7 @@ Tecnologias utilizadas: React, Vite e node js.
 #### Para rodar a aplicação, use:
 
 > cd portal-cursos
+
 > npm install
+
 > npm run dev
